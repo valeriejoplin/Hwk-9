@@ -1,0 +1,90 @@
+﻿@model IEnumerable<IMDB_Ratings.Models.Movie>
+
+@{
+    ViewBag.Title = "All Movies";
+}
+
+<h2>All Movies</h2>
+
+
+<table class="table">
+    <tr>
+    
+        <th>
+            Duration
+        </th>
+
+        <th>
+            Genres
+        </th>
+
+        <th>
+            Movie Title
+        </th>
+ 
+        <th>
+            Language
+        </th>
+
+        <th>
+            Rating
+        </th>
+ 
+        <th>
+            Release Year
+        </th>
+     
+        <th>
+            IMBD Score
+        </th>
+ 
+        <th>
+            Director
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+ 
+        <td>
+            @Html.DisplayFor(modelItem => item.duration) minutes
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.genres)
+        </td>
+  
+        <td>
+         <a href="@item.movie_imdb_link">@item.movie_title</a>
+            
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.language)
+        </td>
+   
+        <td>
+            @Html.DisplayFor(modelItem => item.content_rating)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.title_year)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.imdb_score)
+        </td>
+     
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Director.Director_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.Movie_Id }) |
+        </td>
+    </tr>
+}
+
+</table>

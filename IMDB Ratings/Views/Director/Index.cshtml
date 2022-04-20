@@ -1,0 +1,30 @@
+﻿@model IEnumerable<IMDB_Ratings.Models.Director>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Directors</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+           Director Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Director_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Information", "Information", new { id=item.Director_Id }) |
+
+        </td>
+    </tr>
+}
+
+</table>
